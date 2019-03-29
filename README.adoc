@@ -1,3 +1,4 @@
 = Kyokusei
 
 A GBA homebrew game.
+Due to be released December 2019.

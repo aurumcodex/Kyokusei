@@ -1,0 +1,48 @@
+# This project uses the `build` and `deploy` stages for development.
+stages:
+    - build
+    - deploy
+    
+# The `compile` job is to render the source files into a complete GBA ROM image for
+# use in an emulator or flash cartridge. The built ROM image can be downloaded from
+# either the main page, or the most recent successful pipeline.
+compile:
+    stage: build
+    image: ubuntu:18.04
+    before_script:
+        - echo "Setting Up for Compilation..." > /dev/null
+        - pwd && ls -l
+        - apt-get -qq -y update
+        - apt-get -qq -y install wget gpg make libxml2 libxml2-dev > /dev/null
+        - wget https://github.com/devkitPro/pacman/releases/download/devkitpro-pacman-1.0.1/devkitpro-pacman.deb
+        - dpkg -i devkitpro-pacman.deb
+        - dkp-pacman -Syy
+        - dkp-pacman -S  gba-dev --noconfirm
+        - source /etc/profile.d/devkit-env.sh
+        - echo "Development environment setup complete." > /dev/null
+    script:
+        - echo "Compiling GBA ROM image..." > /dev/null
+        - make clean
+        - make
+    artifacts:
+        name: "$CI_PROJECT_NAME _$CI_COMMIT_REF_NAME _$CI_COMMIT_SHORT_SHA"
+        paths: 
+            - ./*.gba
+            
+# The `pages` job is to set up the files for a website published via GitLab Pages.
+# npm is installed for the compilation of SASS files for the styling of the website.
+pages:
+    stage: deploy
+    image: alpine:latest
+    before_script:
+        - apk add npm
+        - npm install -g sass
+    script:
+        - sass --no-source-map --style=compressed public/styles/kyokusei.sass public/styles/kyokusei.css
+        - echo "deploying website..." > /dev/null
+    artifacts:
+        paths:
+            - public
+    only: 
+      # this will likely change after some time, to keep website changes separate from the main developement.
+        - master

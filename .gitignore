@@ -1,0 +1,6 @@
+public/*.css
+.vscode
+build
+*.gba
+*.elf
+*.sav
