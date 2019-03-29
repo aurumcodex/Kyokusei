@@ -1,4 +1,7 @@
-= Kyokusei
+= 極性 -Kyokusei-
+
+image:https://forthebadge.com/images/badges/made-with-c.svg["Made with C"]
+image:https://img.shields.io/gitlab/pipeline/aurumcodex/kyokusei.svg?label=pipeline&logoColor=blueviolet&style=flat-square[Gitlab pipeline status]
 
 A GBA homebrew game.
 Due to be released December 2019.

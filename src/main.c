@@ -1,4 +1,4 @@
-// Kyokusei
+// 極性 -Kyokusei-
 // a GBA homebrew game
 
 #include <gba.h>
