@@ -18,12 +18,12 @@ void draw_line(u32 x, u32 y, u32 length, u8 direction, COLOR color)
 {
     if (direction == 0) {
         for (int i = 0; i < length; i++) {
-            m3_plot(i, y, color);
+            m3_plot(x+i, y, color);
         }
     }
     if (direction == 1) {
         for (int i = 0; i < length; i++) {
-            m3_plot(x, i, color);
+            m3_plot(x, y+i, color);
         }
     }
     if (direction == 2) {

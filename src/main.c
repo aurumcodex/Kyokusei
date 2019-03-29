@@ -39,40 +39,43 @@ int main()
 
     m3_plot(x, y, purple);
 
-    draw_line(x, y, 100, 4, RGB15(12, 12, 0));
+    draw_line(x+10, y+10, 100, 2, RGB15(12, 12, 0));
 
-    do
-    {
+    int time = 0;
+    while(1){
         /* code */
         VBlankIntrWait();
         scanKeys();
 
         u16 keys = keysDownRepeat();
 
-        m3_plot(x, y, purple);
+        // m3_plot(x, y, purple);
 
-        if (keys & KEY_LEFT && x > 0) {
-            /* code */
-            x--;
-            m3_plot(x, y, purple);
+        // if (keys & KEY_LEFT && x > 0) {
+        //     /* code */
+        //     x--;
+        //     m3_plot(x, y, purple);
+        // }
+        // if (keys & KEY_UP && y > 0) {
+        //     /* code */
+        //     y--;
+        //     m3_plot(x, y, purple);
+        // }
+        // if (keys & KEY_RIGHT && x < SCREEN_WIDTH) {
+        //     /* code */
+        //     x++;
+        //     m3_plot(x, y, purple);
+        // }
+        // if (keys & KEY_DOWN && y < SCREEN_HEIGHT) {
+        //     /* code */
+        //     y++;
+        //     m3_plot(x, y, purple);
+        // }
+        if (time % 7 == 1) {
+            m3_plot(x+time, ((y+time)%4), RGB15(0, 0, 0));
         }
-        if (keys & KEY_UP && y > 0) {
-            /* code */
-            y--;
-            m3_plot(x, y, purple);
-        }
-        if (keys & KEY_RIGHT && x < SCREEN_WIDTH) {
-            /* code */
-            x++;
-            m3_plot(x, y, purple);
-        }
-        if (keys & KEY_DOWN && y < SCREEN_HEIGHT) {
-            /* code */
-            y++;
-            m3_plot(x, y, purple);
-        }
-        
-    } while (1);
+        time++;
+    }
     
     return 0;
 }
