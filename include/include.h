@@ -9,8 +9,12 @@
 typedef u16 COLOR;
 #define INLINE      static inline
 #define vid_mem     ((u16*)VRAM)
+#define M3_SIZE     0x12c00
 
- COLOR RGB15(u32 red, u32 green, u32 blue);
- void m3_plot(int x, int y, COLOR color);
+COLOR RGB15(u32 red, u32 green, u32 blue);
+void m3_plot(int x, int y, COLOR color);
+
+void draw_line(u32 x, u32 y, u32 length, u8 direction, COLOR color);
+void m3_fill(COLOR color);
 
 #endif
