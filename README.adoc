@@ -5,3 +5,5 @@ image:https://img.shields.io/gitlab/pipeline/aurumcodex/kyokusei.svg?label=pipel
 
 A GBA homebrew game.
 Due to be released December 2019.
+
+Kyokusei is based in part on the work of the devkitpro project (http://sourceforge.net/projects/devkitpro).
