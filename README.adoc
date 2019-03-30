@@ -1,9 +1,12 @@
-= 極性 -Kyokusei-
+= 極性 -Kyokusei- image:alt_gplv3.png["GPLv3",100,40,float="right",LICENSE]
 
 image:https://forthebadge.com/images/badges/made-with-c.svg["Made with C"]
-image:https://img.shields.io/gitlab/pipeline/aurumcodex/kyokusei.svg?label=pipeline&logoColor=blueviolet&style=flat-square[Gitlab pipeline status]
+image:https://img.shields.io/gitlab/pipeline/aurumcodex/kyokusei.svg?logo=gitlab&label=pipeline&logoColor=blueviolet&style=flat-square[Gitlab pipeline status]
 
 A GBA homebrew game.
 Due to be released December 2019.
 
 Kyokusei is based in part on the work of the devkitpro project (http://sourceforge.net/projects/devkitpro).
+
+// image::gplv3.png[] 
+image::alt_gplv3.png["GPLv3",100,40,align="right",LICENSE]
