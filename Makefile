@@ -1,3 +1,4 @@
+##### --------- This file is from a template in the libgba library --------- #####
 #---------------------------------------------------------------------------------
 .SUFFIXES:
 #---------------------------------------------------------------------------------
@@ -15,17 +16,19 @@ include $(DEVKITARM)/gba_rules
 # INCLUDES is a list of directories containing extra header files
 # DATA is a list of directories containing binary data
 # GRAPHICS is a list of directories containing files to be processed by grit
+# AUDIO is a list of files to generate a soundbank for audio in the game
 #
 # All directories are specified relative to the project directory where
 # the makefile is found
 #
 #---------------------------------------------------------------------------------
 TARGET		:= $(notdir $(CURDIR))
-BUILD		:= build
+BUILD 		:= build
 SOURCES		:= src
-INCLUDES	:= include
-DATA		:= data
-AUDIO		:=
+INCLUDES	:= include build
+DATA		:=
+GRAPHICS 	:= gfx
+AUDIO		:= audio
 
 #---------------------------------------------------------------------------------
 # options for code generation
@@ -53,6 +56,7 @@ LIBS	:= -lmm -lgba
 # list of directories containing libraries, this must be the top level containing
 # include and lib
 #---------------------------------------------------------------------------------
+# LIBLUA	:=
 LIBDIRS	:=	$(LIBGBA)
 
 #---------------------------------------------------------------------------------
@@ -76,6 +80,7 @@ CFILES		:=	$(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.c)))
 CPPFILES	:=	$(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.cpp)))
 SFILES		:=	$(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.s)))
 BINFILES	:=	$(foreach dir,$(DATA),$(notdir $(wildcard $(dir)/*.*)))
+
 
 ifneq ($(strip $(AUDIO)),)
 	export AUDIOFILES	:=	$(foreach dir,$(notdir $(wildcard $(AUDIO)/*.*)),$(CURDIR)/$(AUDIO)/$(dir))
@@ -155,6 +160,13 @@ soundbank.bin soundbank.h : $(AUDIOFILES)
 #---------------------------------------------------------------------------------
 	@echo $(notdir $<)
 	@$(bin2o)
+
+#---------------------------------------------------------------------------------
+# This rule is for generating the data files for the bitmaps
+#---------------------------------------------------------------------------------
+%.s %.h : %.bmp %.grit
+#---------------------------------------------------------------------------------
+	grit $< -fts -o$*
 
 
 -include $(DEPSDIR)/*.d

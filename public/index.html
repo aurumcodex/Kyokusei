@@ -2,13 +2,20 @@
 <html>
     <head>
         <title>Kyokusei</title>
-        <meta charset="utf-8"/>
+        <meta lang="en" charset="utf-8"/>
         <link rel="stylesheet" href="styles/kyokusei.css">
+        <script src="scripts/lib/vue.js"></script>
     </head>
     <body>
         <h1>Kyokusei</h1>
         <p>A homebrew game being developed for the Nintendo Game Boy Advance.</p>
         <p id="disclaimer">This website is under construction. Check back later.</p>
+
+        <div id="list">
+            <menu_list v-for="item in listItems"
+                       v-bind:thing="item"
+                       v-bind:key="item.id"></menu_list>
+        </div>
 
         <script src="scripts/src/vue_app.js"></script>
     </body>

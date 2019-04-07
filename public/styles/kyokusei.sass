@@ -1,22 +1,40 @@
-@import url('https://fonts.googleapis.com/css?family=Anonymous+Pro|Astloch|Iceberg')
+@import url('https://fonts.googleapis.com/css?family=Anonymous+Pro|Jura|Philosopher')
+@import "gruvbox"
+// @import "solarized"
 
-$ice-font:      "Iceberg", sans-serf
-$loch-font:     "Astloch", serif
-$mono-font:     "Anonymous Pro", monospace
-$main-color:    #dddddd
-$bg-color:      #444444
-$accent-color:  #8045CE
+// fonts
+$header_font:   "Philosopher", Georgia, serif
+$body_font:     "Jura", Helvetica, sans-serif
+$mono_font:     "Anonymous Pro", monospace
+
+
+:root
+    text-align: center
 
 body 
     font-size: 15pt
-    color: $main-color
-    background-color: $bg-color
+    color: $clr_fg
+    background-color: $clr_bg
     h1, h2, h3, h4, h5, h6
-        font-family: $ice-font
+        // color: $clr_hdr
+        font-family: $header_font
 
 p 
-    font-family: $loch-font
+    font-family: $body_font
     &#disclaimer
-        font: 12pt $mono-font 
-        color: $accent-color
+        font: 12pt $mono_font
+        // color: $clr_vlt
+        color: $clr_prp
         font-style: oblique
+
+#list
+    color: $clr_red
+
+/* TODO: 
+ - nav bars
+ - links
+ - text boxes
+ - image boxes
+ - tables (?)
+ - 
+ */
