@@ -24,7 +24,7 @@ compile:
         - echo "Compiling GBA ROM image..." > /dev/null
         - make clean
         - make
-        - echo "Compilation completed. Exit code: $?"
+        - echo "Compilation completed. Exit code = $?"
     artifacts:
         name: "$CI_PROJECT_NAME _$CI_COMMIT_REF_NAME _$CI_COMMIT_SHORT_SHA"
         paths:
