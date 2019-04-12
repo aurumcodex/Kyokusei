@@ -49,7 +49,7 @@ LDFLAGS	=	-g $(ARCH) -Wl,-Map,$(notdir $*.map)
 #---------------------------------------------------------------------------------
 # any extra libraries we wish to link with the project
 #---------------------------------------------------------------------------------
-LIBS	:= -lmm -lgba
+LIBS	:= -lmm -lgba -ltonc
 
 
 #---------------------------------------------------------------------------------
@@ -57,7 +57,9 @@ LIBS	:= -lmm -lgba
 # include and lib
 #---------------------------------------------------------------------------------
 # LIBLUA	:=
+LIBTONC :=  $(DEVKITPRO)/libtonc
 LIBDIRS	:=	$(LIBGBA)
+LIBDIRS +=  $(LIBTONC)
 
 #---------------------------------------------------------------------------------
 # no real need to edit anything past this point unless you need to add additional
@@ -80,7 +82,7 @@ CFILES		:=	$(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.c)))
 CPPFILES	:=	$(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.cpp)))
 SFILES		:=	$(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.s)))
 BINFILES	:=	$(foreach dir,$(DATA),$(notdir $(wildcard $(dir)/*.*)))
-
+BITMAPS 	:=  $(foreach dir,$(GRAPHICS),$(notdir $(wildcard $(dir)/*.bmp)))
 
 ifneq ($(strip $(AUDIO)),)
 	export AUDIOFILES	:=	$(foreach dir,$(notdir $(wildcard $(AUDIO)/*.*)),$(CURDIR)/$(AUDIO)/$(dir))
@@ -164,7 +166,8 @@ soundbank.bin soundbank.h : $(AUDIOFILES)
 #---------------------------------------------------------------------------------
 # This rule is for generating the data files for the bitmaps
 #---------------------------------------------------------------------------------
-%.s %.h : %.bmp %.grit
+# %.s %.h : %.bmp %.grit
+%.s %.h :  $(BITMAPS)
 #---------------------------------------------------------------------------------
 	grit $< -fts -o$*
 

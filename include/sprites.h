@@ -1,10 +1,12 @@
 #include <gba.h>
+// #include <tonc.h>
 
 #ifndef GBA_SPRITES_H
 #define GBA_SPRITES_H
 
 OBJATTR obj_buffer[128];
 
+void updateOAM(int count);
 void updatePos(int i, int x, int y);
 void setupSprite(int i, int x, int y, int index, int palette);
 void setupSprite64x64(int i, int x, int y, int index, int palette);

@@ -1,6 +1,12 @@
 #include <gba.h>
 #include "sprites.h"
 
+void updateOAM(int count) {
+    for (int i = 0; i < count * sizeof(OBJATTR) / 4; i++) {
+        ((u32*)OAM)[i] = ((u32*)obj_buffer)[i];
+    }
+}
+
 void updatePos(int i, int x, int y)
 {
     obj_buffer[i].attr1 &= 0xFE00;
