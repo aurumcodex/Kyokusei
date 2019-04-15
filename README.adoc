@@ -2,7 +2,7 @@
 
 '''
 // image:https://forthebadge.com/images/badges/made-with-c.svg["Made with C"]
-image::public/img/kyokusei_banner_waifu2x.png[Logo]
+image::public/img/kyokusei_banner_waifu2x.png[Logo, 600]
 image:https://img.shields.io/gitlab/pipeline/aurumcodex/kyokusei.svg?logo=gitlab&label=pipeline&logoColor=blueviolet&style=for-the-badge[Gitlab pipeline status]
 image:https://img.shields.io/discord/564447217180606484.svg?color=7289da&label=discord&logo=discord&logoColor=dddddd&style=for-the-badge[Discord]
 
