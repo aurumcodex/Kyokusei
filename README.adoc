@@ -2,7 +2,7 @@
 
 '''
 // image:https://forthebadge.com/images/badges/made-with-c.svg["Made with C"]
-image::public/img/kyokusei_logo.png[Logo, 400]
+image::public/img/kyokusei_banner_waifu2x.png[Logo]
 image:https://img.shields.io/gitlab/pipeline/aurumcodex/kyokusei.svg?logo=gitlab&label=pipeline&logoColor=blueviolet&style=for-the-badge[Gitlab pipeline status]
 image:https://img.shields.io/discord/564447217180606484.svg?color=7289da&label=discord&logo=discord&logoColor=dddddd&style=for-the-badge[Discord]
 
@@ -11,14 +11,14 @@ Target Date: 11.28.2019.
 
 This project is possibly going to be rewritten in Rust, depending on circumstances.
 
-Kyokusei is based in part on the work of the devkitpro project (http://sourceforge.net/projects/devkitpro).
-
 // image::gplv3.png[] 
 // image::alt_gplv3.png["GPLv3",100,40,align="right",LICENSE]
 
 == License
-link:LICENSE[MIT license]
+This project is licensed under the link:LICENSE[MIT license].
+
+Kyokusei is based in part on the work of the devkitpro project (http://sourceforge.net/projects/devkitpro).
 
 ++++
-<img style="float:right;" width="80px" src="public/img/MIT_logo.svg"/>
+<img style="float:right" width="80px" src="public/img/MIT_logo.png"/>
 ++++
